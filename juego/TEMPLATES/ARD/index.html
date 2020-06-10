@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>ARD</title>
+    </head>
+    <body>
+        <H1>Bienvenido a ARD</H1>
+        <form method="POST">
+            {% csrf_token %}
+            Ingrese los datos del personaje:<br><br>
+            Nombre: <input type="text" name="nombre"><br>
+            Nivel: <input type="number" name="nivel"><br>
+            Skills: <input type="text" name="skill"><br><br>
+            <input type="submit" value="Enviar">
+        </form>
+        <ul>
+            {% for item in lista %}
+            <li>{{ item.nombre }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

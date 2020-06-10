@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perros</title>
+</head>
+<body>
+<form method="post">
+     {% csrf_token %}
+
+    <select name="raza" >
+        <option value >--------</option>
+        {% for item in razas %}
+            <option value="{{item.id}}" >{{ item.descripcion }}</option>
+        {% endfor %}
+
+    </select>
+    <input type="submit" value="aceptar" >
+</form>
+
+<ul>
+{% for item in lista %}
+    <li>{{ item.nombre }} {{ item.profesion.nombre }}</li>
+{% endfor %}
+</ul>
+
+
+</body>
+</html>

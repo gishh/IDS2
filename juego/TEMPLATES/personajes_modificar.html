@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perros</title>
+</head>
+<body>
+<form method="post">
+     {% csrf_token %}
+    <label>profesion</label>
+    <select name="profesion" >
+        {% for item in profesiones %}
+        <option value="{{item.id}}"  {% if item.id == personaje.clase.id %}  selected {% endif %}>
+            {{item.nombre}}
+        </option>
+        {% endfor %}
+    </select>
+    <label>Nombre</label>
+    <input type="text" name="nombre" value="{{personaje.nombre}}" >
+    <label>nivel</label>
+    <input type="number" name="nivel" value="{{personaje.nivel}}" >
+    <input type="submit" value="aceptar" >
+</form>
+
+
+
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Perros</title>
+</head>
+<body>
+<form method="post">
+     {% csrf_token %}
+    <label>profesion</label>
+    <select name="profesion" >
+        {% for item in profesiones %}
+        <option value="{{item.id}}" > {{item.nombre}} </option>
+        {% endfor %}
+    </select>
+    <label>habilidad</label>
+    <input type="text" name="nombre" >
+    <label>nivel</label>
+    <input type="number" name="nivel" >
+    <input type="submit" value="aceptar" >
+</form>
+<p>
+<table>
+    <thead>
+    <tr>
+    <td>Nombre</td><td> profesion </td><td> Nivel </td>
+    </tr>
+    </thead>
+    <tbody>
+{% for item in lista %}
+    <tr>
+        <td>
+        {{ item.nombre }}
+        </td>
+        <td>
+        {{ item.profesion.nombre }}
+        </td>
+        <td>
+        {{ item.nivel_min }}
+        </td>
+
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+
+
+
+</body>
+</html>
