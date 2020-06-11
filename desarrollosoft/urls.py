@@ -16,8 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 import juego
+import futbol
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('juego.urls'))
+    path('', include('juego.urls')),
+    path('', include('futbol.urls')),
+    
 ]

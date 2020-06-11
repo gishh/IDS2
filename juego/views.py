@@ -45,7 +45,6 @@ def cargar_personaje(request):
 def eliminar_personaje(request, id_personaje):
     personaje = Personaje.objects.get(id=id_personaje)
     personaje.delete()
-    #personaje.objects.all()
     return redirect('/juego/personaje')
     #return render(request, 'personajes_modificar.html')
 
