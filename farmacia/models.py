@@ -12,6 +12,6 @@ class Droga(models.Model):
     empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, related_name='drogas')
 
     class Meta:
-        unique_together = ("nombre", "cantidad","empresa")
+        unique_together = ("nombre", "cantidad")
 
 
