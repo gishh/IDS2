@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from juego.models import Profesion, Habilidades, Personaje
+from juego.models import Profesion, Habilidades, Personaje, Usuario
 
 
 def cargar_profesion(request):
@@ -37,10 +37,40 @@ def cargar_personaje(request):
         personaje.clase_id = profesion_id
         personaje.nivel = nivel
         personaje.save()
-
     lista = Personaje.objects.all()
     profesiones = Profesion.objects.all()
     return render(request, 'personajes_carga.html',{'lista':lista,'profesiones':profesiones})
+
+def logueo(request):
+    if request.method == 'POST':
+        correo = request.POST.get('correo')
+        password = request.POST.get('password')
+        usuario = Usuario()
+        usuario = Usuario.objects.get(correo=correo)
+        if (usuario.correo == correo):
+            if (usuario.password == password):
+                return render(request, 'logueo_ok.html')
+            else:  
+                mensaje= "La password no se reconoce"
+                return render(request, 'logueo.html',{'mensaje':mensaje})
+        else:
+            mensaje= "El usuario no se reconoce"
+            return render(request, 'logueo.html',{'mensaje':mensaje})
+
+    return render(request, 'logueo.html')
+
+    
+def registro(request):
+    if request.method == 'POST':
+        correo = request.POST.get('correo')
+        password = request.POST.get('password')
+        usuario = Usuario()
+        usuario.correo = correo
+        usuario.password = password
+        usuario.save()
+        return redirect('/juego/logueo')
+    else:
+        return render(request, 'registro.html')
 
 def eliminar_personaje(request, id_personaje):
     personaje = Personaje.objects.get(id=id_personaje)

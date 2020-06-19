@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-from juego.views import cargar_habilidad,cargar_personaje,cargar_profesion,modificar_personaje,eliminar_personaje
+from juego.views import cargar_habilidad,cargar_personaje,cargar_profesion,modificar_personaje,eliminar_personaje,logueo,registro
 
 
 #urlpatterns = [
@@ -18,4 +18,6 @@ urlpatterns = [
     path('juego/', cargar_personaje),
     path('juego/personaje', cargar_personaje),
     path('juego/eliminar/<int:id_personaje>', eliminar_personaje),
+    path('juego/logueo', logueo),
+    path('juego/registro', registro),
 ]

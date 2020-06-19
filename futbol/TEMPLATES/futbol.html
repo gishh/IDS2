@@ -9,9 +9,9 @@
             Ingrese los datos del personaje:<br><br>
             Nombre: <input type="text" name="nombre"><br>
             Numero: <input type="number" name="numero"><br>
-            <p>{{ error }}</p>
             <input type="submit" value="Enviar">
         </form>
+        <p>{{error}}</p>
         <ul>
             {% for item in lista %}
             <li>{{ item.nombre }}&nbsp;{{ item.numero }}</li>

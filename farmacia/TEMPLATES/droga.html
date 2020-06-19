@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <title>Federación Argentina de Farmacéuticos Asociados (FAFA)</title>
+    </head>
+    <body>
+        <H1>Bienvenido a la Federación Argentina de Farmacéuticos Asociados (FAFA)</H1>
+        
+        <form method="POST">
+            {% csrf_token %}
+
+            <label>Empresa</label>
+            <select name="empresa" >
+                {% for item in lista2 %}
+                <option value="{{item.id}}"  {% if item.id == droga.empresa.id %}  selected {% endif %}>
+                    {{item.nombre}}
+                </option>
+                {% endfor %}
+            </select><br><br>
+
+
+            Ingrese los datos del medicamento:<br><br>
+            Nombre: <input type="text" name="nombre"><br>
+            Cantidad en mm/mg: <input type="number" name="cantidad"><br>
+            <input type="submit" value="Enviar">
+        </form>
+        <p>{{error}}</p>
+        EMPRESA&nbsp;NOMBRE&nbsp;CANTIDAD
+        <ul>
+            {% for item in lista %}
+            <li>{{ item.empresa.nombre}}&nbsp;{{ item.nombre }}&nbsp;{{ item.cantidad }}</li>
+            {% endfor %}
+        </ul>
+
+        <!-- ACORDATE PAPU QUE TENES QUE VER PORQUE NO TE DEJA INGRESAR UN MEDICAMENTO EN EL SISTEMA-->
+
+
+
+
+        
+    </body>
+</html>

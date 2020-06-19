@@ -33,6 +33,7 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'juego.apps.JuegoConfig',
     'futbol.apps.FutbolConfig',
+    'farmacia.apps.FarmaciaConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

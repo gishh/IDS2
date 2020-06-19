@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Federación Argentina de Farmacéuticos Asociados (FAFA)</title>
+    </head>
+    <body>
+        <H1>Bienvenido a la Federación Argentina de Farmacéuticos Asociados (FAFA)</H1>
+        <p>Inserte el nombre de la empresa por favor</p>
+        <form method="post">
+            {% csrf_token %}
+           <input type="text" name="nombre" >
+           <input type="submit" value="aceptar" >
+       </form>
+       
+       <ul>
+       {% for item in lista %}
+           <li>{{ item.nombre }}</li>
+       {% endfor %}
+       </ul>
+       
+       </body>
+       </html>
